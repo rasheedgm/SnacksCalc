@@ -92,6 +92,13 @@ $(document).ready(function(){
             $("#add").click();
         return false;    //<---- Add this line
         }
+});   
+    
+    $('#quantity').keypress(function (e) {
+        if (e.which == 9) {
+            $("#add").click();
+        return false;    //<---- Add this line
+        }
 });
     
     $("#clear").click(function(){
