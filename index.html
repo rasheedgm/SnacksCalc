@@ -44,6 +44,7 @@ $(document).ready(function(){
                 break;
         }
         $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
+        $('#quantity').val("");
         
     });
     
@@ -56,7 +57,7 @@ $(document).ready(function(){
                 var tempqnt= Number($('#qntsnk6').text()) - Number(quantity) ;
                 if(tempqnt<0){tempqnt=0;}
                 $('#qntsnk6').text(tempqnt);
-                $('#amtsnk6').text(tempqnt*8+".00");
+                $('#amtsnk6').text(tempqnt*6+".00");
                 break;
             case "snk5":
                 var tempqnt= Number($('#qntsnk5').text()) - Number(quantity) ;
@@ -78,8 +79,21 @@ $(document).ready(function(){
                 break;
         }
         $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
+        $('#quantity').val("");
         
     });
+    
+    $( "#item" ).change(function() {
+        $('#quantity').focus();
+    });
+    
+    $('#quantity').keypress(function (e) {
+        if (e.which == 13) {
+            $("#add").click();
+        return false;    //<---- Add this line
+        }
+});
+    
     
     
 });
