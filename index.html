@@ -94,6 +94,18 @@ $(document).ready(function(){
         }
 });
     
+    $("#clear").click(function(){
+        $('#qntsnk6').text("")
+        $('#qntsnk5').text("")
+        $('#qnttea').text("")
+        $('#amtsnk6').text("")
+        $('#amtsnk5').text("")
+        $('#amttea').text("")
+        $('#totalamt').text("0.00")
+        
+        
+    });
+    
     
     
 });
@@ -103,15 +115,15 @@ $(document).ready(function(){
     
     <body>
     
-<div data-role="page" id="home" class="ui-responsive-panel" data-theme="b" >
+<div data-role="page" id="home" class="ui-responsive-panel" data-theme="a" >
    <div  data-role="header" data-position="fixed" >
     <h1>Snacks Calc</h1>
        </div>
   <div data-role="main" class="ui-content">
-<!--          <div data-role="controlgroup" data-type="horizontal" align="right">
-      <a href="#" class="ui-btn" name="subtotal" >Sub Total</a>
-      <a href="#" class="ui-btn"  name="fulltotal">Full Total</a>
-    </div>-->
+          <div data-role="controlgroup" data-type="horizontal" align="right">
+      <a href="#" class="ui-btn" name="clear" id="clear">Clear</a>
+      <!--<a href="#" class="ui-btn"  name="fulltotal">Full Total</a>-->
+    </div>
       
       <div class="ui-grid-b ui-responsive">
           
@@ -133,8 +145,8 @@ $(document).ready(function(){
       
       </div>
       
-      <div class="ui-body ui-body-b ui-corner-all" >
-      <table data-role="table" id="table-custom-2" data-mode="None" class="ui-body-b ui-shadow table-stripe ui-responsive">
+      <div class="ui-body ui-body-c ui-corner-all" >
+      <table data-role="table" id="table-custom-2" data-mode="None" class="ui-body-a ui-shadow table-stripe ui-responsive">
           <thead>
               <th>Item</th><th>Quantity</th><th>Amount</th>
           </thead>
