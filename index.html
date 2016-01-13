@@ -46,6 +46,42 @@ $(document).ready(function(){
         $('#totalamt').text(Number($('#amtsnk8').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
         
     });
+    
+    
+    $("#sub").click(function(){
+        var item = $('#item').val();
+        var quantity = $('#quantity').val();
+        switch (item){
+            case "snk8":
+                var tempqnt= Number($('#qntsnk8').text()) - Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
+                $('#qntsnk8').text(tempqnt);
+                $('#amtsnk8').text(tempqnt*8+".00");
+                break;
+            case "snk5":
+                var tempqnt= Number($('#qntsnk5').text()) - Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
+                $('#qntsnk5').text(tempqnt);
+                $('#amtsnk5').text(tempqnt*5+".00");
+                break;
+            case "tea":
+                var tempqnt= Number($('#qnttea').text()) - Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
+                $('#qnttea').text(tempqnt);
+                $('#amttea').text(tempqnt*8+".00");
+                break;
+            case "other":
+                var tempqnt= Number($('#qntother').text()) - Number(quantity) ;
+                alert("not configured yet")
+                //$('#qntother').text(tempqnt);
+                //$('#amtother').text(tempqnt*8+".00");
+                break;
+        }
+        $('#totalamt').text(Number($('#amtsnk8').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
+        
+    });
+    
+    
 });
       </script>
     </head>
@@ -62,7 +98,7 @@ $(document).ready(function(){
       <a href="#" class="ui-btn" name="subtotal" >Sub Total</a>
       <a href="#" class="ui-btn"  name="fulltotal">Full Total</a>
     </div>-->
-      <br>
+      
       <div class="ui-grid-b ui-responsive">
           
               <div data-role="fieldcontain" class="ui-block-a">
@@ -75,8 +111,14 @@ $(document).ready(function(){
    </select>
               </div>
                     <div class="ui-block-b"> <input name="quantity" id="quantity" placeholder="quantity" value="" type="number"></div>
-          <div class="ui-block-c"><a href="#" id="add"name="add" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-notext">ADD</a></div>
+          
       </div>
+      <div  class="ui-grid-a">
+      <div class="ui-block-a" ><a href="#" id="add"name="add" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-notext">ADD</a></div>
+          <div class="ui-block-b" align="right"><a href="#" id="sub"name="sub" class="ui-btn ui-btn-inline ui-icon-minus ui-btn-icon-notext">SUB</a></div>
+      
+      </div>
+      
       <div class="ui-body ui-body-b ui-corner-all" >
       <table data-role="table" id="table-custom-2" data-mode="None" class="ui-body-b ui-shadow table-stripe ui-responsive">
           <thead>
