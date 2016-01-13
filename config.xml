@@ -24,7 +24,7 @@ value="org.apache.cordova.device.Device"
 
 <!-- Core/Common Preferences -->
 
-<preference name="Fullscreen" value="true"/>
+<preference name="Fullscreen" value="false"/>
 
 <preference name="DisallowOverscroll" value="true"/>
 
@@ -62,7 +62,7 @@ value="org.apache.cordova.device.Device"
 <!--Android Preferences-->
 <preference name="KeepRunning" value="false"/>
 
-<preference name="LoadUrlTimeoutValue" value="10000"/>
+<preference name="LoadUrlTimeoutValue" value="0"/>
 
 <preference name="SplashScreen" value="mySplash"/>
 
