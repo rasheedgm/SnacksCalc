@@ -178,7 +178,6 @@
 				if (target && target.prop("tagName") == 'INPUT'){
 					target.trigger('change');
 				}
-                $("#add").click()
                 return nmpd;
                 
 			};

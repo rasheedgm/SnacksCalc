@@ -28,6 +28,7 @@
 			// Instantiate NumPad once the page is ready to be shown
 			$(document).on('pageshow', function(){
 				$('#quantity').numpad();
+                $('#quantity-sub').numpad();
 
 
 			});
@@ -44,6 +45,23 @@
 <script>
 $(document).ready(function(){
     $("#add").click(function(){
+         $( "#quantity" ).click();
+        
+    });
+    $( "#quantity" ).change(function() {
+        add();
+    });
+    
+    $("#sub").click(function(){
+        $( "#quantity-sub" ).click();
+    });
+    
+     $( "#quantity-sub" ).change(function() {
+        sub();
+    });
+    
+    function add(){
+        
         var item = $('#item').val();
         var quantity = $('#quantity').val();
         switch (item){
@@ -75,13 +93,12 @@ $(document).ready(function(){
         }
         $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
         $('#quantity').val("");
-        
-    });
+                  
+        }
     
-    
-    $("#sub").click(function(){
+    function sub(){
         var item = $('#item').val();
-        var quantity = $('#quantity').val();
+        var quantity = $('#quantity-sub').val();
         switch (item){
             case "snk8":
                 var tempqnt= Number($('#qntsnk6').text()) - Number(quantity) ;
@@ -110,11 +127,21 @@ $(document).ready(function(){
         }
         $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
         $('#quantity').val("");
+        $('#quantity-sub').val("");
         
-    });
+        
+        
+        
+    }
+    
+    
+    
+    
+    
     
     $( "#item" ).change(function() {
         $('#quantity').focus();
+        $("#add").click();
     });
     
     $('#quantity').keypress(function (e) {
@@ -173,7 +200,9 @@ $(document).ready(function(){
       <option value="other">Other</option>
    </select>
               </div>
-                    <div class="ui-block-b"> <input name="quantity" id="quantity" placeholder="quantity" value="" type="number"></div>
+                    <div class="ui-block-b"> <input name="quantity" id="quantity" placeholder="quantity" value="" type="hidden">
+                                             <input name="quantity-sub" id="quantity-sub" placeholder="quantity" value="" type="hidden">
+                    </div>
           
       </div>
       <div  class="ui-grid-a">
