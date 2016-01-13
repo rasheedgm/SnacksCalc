@@ -8,11 +8,37 @@
   <!-- Include jQuery Mobile stylesheets -->
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="css/custom-css.css">
+  <link rel="stylesheet" href="css/jquery.numpad.css">
   <!-- Include the jQuery library -->
   <script src="js/jquery-1.11.3.min.js"></script>
   <!-- Include the jQuery Mobile library -->
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/jquery.numpad.js"></script>
 
+<script type="text/javascript">
+			// Set NumPad defaults for jQuery mobile. 
+			// These defaults will be applied to all NumPads within this document!
+			$.fn.numpad.defaults.gridTpl = '<table class="ui-bar-a"></table>';
+			$.fn.numpad.defaults.backgroundTpl = '<div class="ui-popup-screen ui-overlay-a"></div>';
+			$.fn.numpad.defaults.displayTpl = '<input data-theme="b" type="text" />';
+			$.fn.numpad.defaults.buttonNumberTpl =  '<a data-role="button" data-theme="a"></a>';
+			$.fn.numpad.defaults.buttonFunctionTpl = '<a data-role="button" data-theme="a"></a>';
+			$.fn.numpad.defaults.onKeypadCreate = function(){$(this).enhanceWithin();};
+			
+			// Instantiate NumPad once the page is ready to be shown
+			$(document).on('pageshow', function(){
+				$('#quantity').numpad();
+
+
+			});
+		</script>
+		<style type="text/css">
+			.controlgroup-textinput{
+				padding-top: .22em;
+				padding-bottom: .22em;
+			}
+		</style>      
+      
       
             
 <script>
@@ -23,22 +49,26 @@ $(document).ready(function(){
         switch (item){
             case "snk8":
                 var tempqnt= Number($('#qntsnk6').text()) + Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
                 $('#qntsnk6').text(tempqnt);
                 $('#amtsnk6').text(tempqnt*6+".00");
                 break;
             case "snk5":
                 var tempqnt= Number($('#qntsnk5').text()) + Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
                 $('#qntsnk5').text(tempqnt);
                 $('#amtsnk5').text(tempqnt*5+".00");
                 break;
             case "tea":
                 var tempqnt= Number($('#qnttea').text()) + Number(quantity) ;
+                if(tempqnt<0){tempqnt=0;}
                 $('#qnttea').text(tempqnt);
                 $('#amttea').text(tempqnt*8+".00");
                 break;
             case "other":
                 var tempqnt= Number($('#qntother').text()) + Number(quantity) ;
-                alert("not configured yet")
+                if(tempqnt<0){tempqnt=0;}
+                alert("Other not configured yet")
                 //$('#qntother').text(tempqnt);
                 //$('#amtother').text(tempqnt*8+".00");
                 break;
@@ -73,7 +103,7 @@ $(document).ready(function(){
                 break;
             case "other":
                 var tempqnt= Number($('#qntother').text()) - Number(quantity) ;
-                alert("not configured yet")
+                alert("Other not configured yet")
                 //$('#qntother').text(tempqnt);
                 //$('#amtother').text(tempqnt*8+".00");
                 break;
