@@ -22,9 +22,9 @@ $(document).ready(function(){
         var quantity = $('#quantity').val();
         switch (item){
             case "snk8":
-                var tempqnt= Number($('#qntsnk8').text()) + Number(quantity) ;
-                $('#qntsnk8').text(tempqnt);
-                $('#amtsnk8').text(tempqnt*8+".00");
+                var tempqnt= Number($('#qntsnk6').text()) + Number(quantity) ;
+                $('#qntsnk6').text(tempqnt);
+                $('#amtsnk6').text(tempqnt*6+".00");
                 break;
             case "snk5":
                 var tempqnt= Number($('#qntsnk5').text()) + Number(quantity) ;
@@ -43,7 +43,7 @@ $(document).ready(function(){
                 //$('#amtother').text(tempqnt*8+".00");
                 break;
         }
-        $('#totalamt').text(Number($('#amtsnk8').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
+        $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
         
     });
     
@@ -53,10 +53,10 @@ $(document).ready(function(){
         var quantity = $('#quantity').val();
         switch (item){
             case "snk8":
-                var tempqnt= Number($('#qntsnk8').text()) - Number(quantity) ;
+                var tempqnt= Number($('#qntsnk6').text()) - Number(quantity) ;
                 if(tempqnt<0){tempqnt=0;}
-                $('#qntsnk8').text(tempqnt);
-                $('#amtsnk8').text(tempqnt*8+".00");
+                $('#qntsnk6').text(tempqnt);
+                $('#amtsnk6').text(tempqnt*8+".00");
                 break;
             case "snk5":
                 var tempqnt= Number($('#qntsnk5').text()) - Number(quantity) ;
@@ -77,7 +77,7 @@ $(document).ready(function(){
                 //$('#amtother').text(tempqnt*8+".00");
                 break;
         }
-        $('#totalamt').text(Number($('#amtsnk8').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
+        $('#totalamt').text(Number($('#amtsnk6').text()) +Number($('#amtsnk5').text()) +Number($('#amttea').text()) +".00");
         
     });
     
@@ -125,9 +125,9 @@ $(document).ready(function(){
               <th>Item</th><th>Quantity</th><th>Amount</th>
           </thead>
         <tr>
-          <td>Sancks of Rs.8</td>
-          <td id="qntsnk8"></td>
-          <td id="amtsnk8"></td>
+          <td>Sancks of Rs.6</td>
+          <td id="qntsnk6"></td>
+          <td id="amtsnk6"></td>
         </tr>
         <tr>
           <td>Sancks of Rs.5</td>
